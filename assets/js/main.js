@@ -1,46 +1,44 @@
 function mainFunction() {
+    // Numbers
+    const num1 = 10;
+    const num2 = 20;
     let value;
 
-    // Number to string
-    value = String(12);
-    value = (12).toString();
+    // + * / - %
 
-    // String to number
-    value = Number(value);
+    value = num1 + num2;
+    value = value + 100;
+    value += 100;
+    // value = num1 / num2;
+    // value = value % 4;
+    // value %= 4;
 
-    // Array to string
-    value = String([1, 2, 3, 4]);
+    value++;
+    value--;
 
-    // Object to string
-    value = String({ name: 'Egor' });
+    ++value;
+    --value;
 
-    value = 30 + '' + undefined;
-    value = 30 + '5';
-    value = 30 - '5';
-    value = false + undefined;
+    value = 0.6 + 0.7;
+    // value = +value.toFixed(1);
+    value = parseFloat(value.toFixed(1));
+    // value = (0.6 * 10 + 0.7 * 10) / 10;
 
-    // NUmber to string
-    value = Number('12');
-    value = Number(true);
-    value = Number(false);
-    value = Number(null);
-    value = Number('false');
-    value = Number([1, 2, 3]);
+    // Math
+    value = Math.PI;
+    value = Math.random();
+    value = Math.round(2.5);
+    value = Math.ceil(2.2); // Округляет в большую сторону
+    value = Math.floor(2.9); // Округляет в меньшую сторону
+    value = Math.min(14, 23, 2124, 32, 6, 235);
+    value = Math.max(14, 23, 2124, 32, 6, 235);
+    value = Math.floor(Math.random() * 10 + 1);
 
-    value = parseInt('200px');
-    value = parseFloat('200.50px');
+    // Вывод рандомного цвета
+    const colorsArray = ['BLack', 'Blue', 'Green', 'Yellow', 'Pink', 'Purple'];
+    value = Math.floor(Math.random() * colorsArray.length);
 
-    // Boolean
-    value = Boolean('Hello');
-    value = Boolean('');
-    value = Boolean(100);
-    value = Boolean(0);
-    value = Boolean(undefined);
-    value = Boolean(null);
-    value = Boolean({});
-    value = Boolean([]);
-
-    console.log(value);
+    console.log(value, colorsArray[value]);
     console.log(typeof value);
 }
 
