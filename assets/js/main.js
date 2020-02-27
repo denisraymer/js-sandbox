@@ -1,27 +1,34 @@
 function mainFunction() {
-    // Template string
-    const firstName = 'Denis';
-    const lastName = 'Raymer';
-    const age = '16';
+    // Object
+    const user = {
+        firstName: 'Denis',
+        age: '18',
+        isAdmin: true,
+        email: 'test@gmail.com',
+        'user-address': {
+            city: 'Moscow'
+        },
+        skills: ['Python', 'C++', 'C#']
+    };
 
-    let str;
+    let value;
+    let prop = 'skills';
 
-    str = 'Hello my name is' + firstName + ' ' + lastName;
+    value = user.firstName;
+    value = user['isAdmin'];
+    value = user['user-address'];
+    value = user['user-address'].city;
+    value = user['user-address']['city'];
+    value = user['skills'][1];
 
-    str = '<ul>' +
-        '<li>' + 'First name' + firstName + '</li>' +
-        '<li>' + 'Last name' + lastName + '</li>' +
-        '<li>' + 'Age' + age + '</li>' +
-    '</ul>';
+    value = user.firstName = 'Den';
+    value = user.info = 'Some info';
 
-    // ES6
-    str = `<ul>
-        <li>First name: ${firstName}</li>
-        <li>Last name: ${lastName}</li>
-        <li>Age: ${age}</li>
-    </ul>`;
+    value = user['user-address'].city = 'SPB';
+    value = user['user-address'].country = 'Russia';
 
-    document.getElementById('root').innerHTML = str;
+    console.log(value);
+    console.log(user);
 }
 
 mainFunction();
