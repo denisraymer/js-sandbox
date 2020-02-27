@@ -1,44 +1,50 @@
 function mainFunction() {
-    // Numbers
-    const num1 = 10;
-    const num2 = 20;
+    // String
+    const firstName = 'Denis';
+    const lastName = 'Raymer';
+    const age= '16';
+    const str = 'Hello my name is Denis';
+
     let value;
 
-    // + * / - %
+    value = firstName + lastName;
+    value = firstName + ' ' + lastName;
+    // value = value + ' age ' + age;
+    value += ' age ' + age;
 
-    value = num1 + num2;
-    value = value + 100;
-    value += 100;
-    // value = num1 / num2;
-    // value = value % 4;
-    // value %= 4;
+    // Properties
+    value = firstName.length;
+    value = firstName[2];
+    value = firstName[4];
+    value = firstName[firstName.length - 1];
+    value = lastName[lastName.length - 1];
 
-    value++;
-    value--;
+    // Methods
+    value = firstName.toUpperCase();
+    value = firstName[4].toUpperCase();
+    value = firstName.toLowerCase();
+    value = firstName.concat(' ' + lastName);
 
-    ++value;
-    --value;
+    value = str.indexOf('n');
+    value = str.indexOf('n', 6);
+    value = str.includes('Denis'); // Поиск элемента в строке
+    value = firstName.startsWith("Den"); // true, "Den" — начало "Denis"
+    value = firstName.endsWith("is"); // true, "is" — окончание "is"
 
-    value = 0.6 + 0.7;
-    // value = +value.toFixed(1);
-    value = parseFloat(value.toFixed(1));
-    // value = (0.6 * 10 + 0.7 * 10) / 10;
+    value = str.slice(0, 5);
+    value = str.slice(0, -3); // Удаляет с конца
 
-    // Math
-    value = Math.PI;
-    value = Math.random();
-    value = Math.round(2.5);
-    value = Math.ceil(2.2); // Округляет в большую сторону
-    value = Math.floor(2.9); // Округляет в меньшую сторону
-    value = Math.min(14, 23, 2124, 32, 6, 235);
-    value = Math.max(14, 23, 2124, 32, 6, 235);
-    value = Math.floor(Math.random() * 10 + 1);
+    value = str.replace('Denis', 'Den'); // Заменяет элемент
 
-    // Вывод рандомного цвета
-    const colorsArray = ['BLack', 'Blue', 'Green', 'Yellow', 'Pink', 'Purple'];
-    value = Math.floor(Math.random() * colorsArray.length);
+    value = firstName.codePointAt(0); // Возвращает код для символа
+    value = String.fromCodePoint(value); // Создаёт символ по его коду
 
-    console.log(value, colorsArray[value]);
+    // Создание строки, содержащую символы с кодами от 65 до 220:
+    for (let i = 65; i <= 220; i++) {
+        value += String.fromCodePoint(i);
+    }
+
+    console.log(value);
     console.log(typeof value);
 }
 
