@@ -1,37 +1,65 @@
-// Методы массивов
-const user = {
-    name: 'Denis',
-    statusAdmin: false,
-    age: 22
-};
-
 const mainFunction = function() {
+    // Функции высшего порядка
     let colorPallet = ['Black', 'Blue', 'Green', 'Yellow', 'Pink', 'Purple'];
     let value;
+    const user = {
+        name: 'Denis',
+        statusAdmin: false,
+        age: 22
+    };
 
-    value = colorPallet.length;
-    // colorPallet.length = 0;
-    // colorPallet.length = 100;
+    // Функция принимает другую функцию в качестве аргумента:
+    function mapArray(arr, fn) {
+        let res = [];
 
-    value = Array.isArray(colorPallet); // Проверка на массив это или нет
-    value = colorPallet[2] = 'Greens';
+        for (let i = 0; i < arr.length; i++) {
+            res.push(fn(arr[i]));
+        }
 
-    value = colorPallet.indexOf('Yellow'); // Получение индекса нискомого элемента
-    value = colorPallet[value]; // Получение значения по индексу
+        return res;
+    }
 
-    value = colorPallet.push('Orange'); // Добавляет в конец
-    value = colorPallet.pop(); // Удаляет последниэ элемент
-    value = colorPallet.unshift('Orange'); // Добавляет в начало
-    value = colorPallet.shift(); // Удаляет начальный элемент
-    value = colorPallet.slice(0, 2); // Вырезает по индексу
-    value = colorPallet.splice(0, 2, 'Grey', 'White'); // Удаляет и возвращет удаленные элементы, добавляет на место удаленных новое значение
-    value = colorPallet.reverse();
-    value = colorPallet.concat(value); // Объединяет массив
-    value = [].concat(value); // Объединяет массив
-    value = colorPallet.join('-'); // Преобразует в строку, разделяет по символьно
-    value = 'Hello world'.split(' '); // Создает массив, разделяет по символьно
+    function upperCase(el) {
+        return el.toUpperCase();
+    }
 
-    console.log(colorPallet);
+    value = mapArray(colorPallet, upperCase);
+
+    // Функция возвращает другую функцию в качестве результата:
+    function greeting(fullName) {
+        return function (lastName) {
+            return `Hello ${ fullName } ${ lastName }`
+        }
+    }
+
+    const testGreeting = greeting('Denis');
+    value = testGreeting('Raimer');
+    value = greeting('Denis')('Raimer');
+
+    // ----
+    function question(job) {
+        const list = {
+            developer: 'Hello, developer ',
+            teacher: 'Hello, teacher '
+        };
+
+        // if (job === 'developer') {
+        //     return function (name) {
+        //         value = `Hello, developer ${ name }`
+        //     }
+        // } else if(job === 'teacher') {
+        //     return function (name) {
+        //         value = `Hello, teacher ${ name }`
+        //     }
+        // }
+
+        return function (name) {
+            value = list[job] + name;
+        }
+    }
+
+    question('teacher')('Tom');
+
     console.log(value);
 };
 
