@@ -1,66 +1,42 @@
-const mainFunction = function() {
-    // Функции высшего порядка
+const mainFunction = function () {
+    // This. Контекст вызова функции
     let colorPallet = ['Black', 'Blue', 'Green', 'Yellow', 'Pink', 'Purple'];
     let value;
-    const user = {
-        name: 'Denis',
-        statusAdmin: false,
-        age: 22
+
+    function getPrice(currency = '$') {
+        console.log(`${currency} ${this.price}`);
+        return this
+    }
+
+    const productList = {
+        name: 'Intel',
+        price: 100,
+        info: {
+            information: ['Product 00', 'Product 01'],
+            getInfo: function () {
+                return this
+            }
+        },
+        getName() {
+            return this.name
+        },
+        getPrice
     };
 
-    // Функция принимает другую функцию в качестве аргумента:
-    function mapArray(arr, fn) {
-        let res = [];
+    value = productList.info.getInfo();
+    value = productList.getName();
+    // value = productList.getPrice();
 
-        for (let i = 0; i < arr.length; i++) {
-            res.push(fn(arr[i]));
-        }
+    // Вызов в контексте объекта (productList)
+    // getPrice.call(productList, '$');
+    // Принимает аргументы передаваемы в функцию в качестве массива
+    // getPrice.apply(productList, ['%']);
 
-        return res;
-    }
+    const getPriceBind = productList.getPrice.bind(productList, '#');
 
-    function upperCase(el) {
-        return el.toUpperCase();
-    }
+    value = setTimeout(getPriceBind, 1000);
 
-    value = mapArray(colorPallet, upperCase);
-
-    // Функция возвращает другую функцию в качестве результата:
-    function greeting(fullName) {
-        return function (lastName) {
-            return `Hello ${ fullName } ${ lastName }`
-        }
-    }
-
-    const testGreeting = greeting('Denis');
-    value = testGreeting('Raimer');
-    value = greeting('Denis')('Raimer');
-
-    // ----
-    function question(job) {
-        const list = {
-            developer: 'Hello, developer ',
-            teacher: 'Hello, teacher '
-        };
-
-        // if (job === 'developer') {
-        //     return function (name) {
-        //         value = `Hello, developer ${ name }`
-        //     }
-        // } else if(job === 'teacher') {
-        //     return function (name) {
-        //         value = `Hello, teacher ${ name }`
-        //     }
-        // }
-
-        return function (name) {
-            value = list[job] + name;
-        }
-    }
-
-    question('teacher')('Tom');
-
-    console.log(value);
+    return value
 };
 
 mainFunction();
