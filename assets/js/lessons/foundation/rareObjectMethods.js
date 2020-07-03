@@ -1,5 +1,5 @@
 const rareObjectMethods = function () {
-    // Ребдкие методы объектов
+    // Редкие методы объектов
     let value;
     let obj1 = {
         name: 'Denis',
@@ -16,11 +16,11 @@ const rareObjectMethods = function () {
     value = Object.assign({}, obj1);
 
     // Создает копию объектов obj1, obj2 и объединяет их
-    // obj2 заменяет одинаковые значения свойт в obj1.
+    // obj2 заменяет одинаковые значения свойства в obj1.
     // !Порядок важен
     value = Object.assign({}, obj1, obj2);
 
-    // Не капопирует вложеные свойтва объекта info
+    // Не копирует вложенные свойства объекта info
     value = Object.assign({}, obj1);
 
     value = JSON.stringify(obj1); // Преобразует в строку
