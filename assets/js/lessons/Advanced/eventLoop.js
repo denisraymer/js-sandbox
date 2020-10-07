@@ -1,6 +1,7 @@
 // EventLoop/Context
 
 // Для визуализации работы EventLoop используйте: https://github.com/latentflip/loupe
+// Context - окружение, в котором производится выполнение кода.
 
 
 // Пример работы EventLoop
@@ -14,8 +15,6 @@ console.log('Finish');
 
 
 // Пример работы контекста
-let a = 'Hello World';
-
 function first() {
     console.log('Inside first function');
     second();
