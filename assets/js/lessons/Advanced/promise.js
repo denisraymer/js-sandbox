@@ -1,3 +1,7 @@
+// Advanced JavaScript
+
+// Promise
+
 const promise = new Promise(function (resolve, reject) {
     setTimeout(function () {
         const backendData = {
