@@ -1,4 +1,7 @@
+const axios = require('axios');
 const Ajax = require('./Ajax');
+
+jest.mock('axios');
 
 describe('Ajax: echo', () => {
   test('Должен вернуть асинхронное значение', async () => {
@@ -24,6 +27,26 @@ describe('Ajax: echo', () => {
   test('Должен поймать ошибку промиса', () => {
     return Ajax.echo().catch(error => {
       expect(error).toBeInstanceOf(Error);
+    });
+  });
+});
+
+
+// Пример работы с библиотекой Axios
+describe('Axios GET:', () => {
+  let response;
+  let todos;
+
+  beforeEach(() => {
+    todos = [{id: 1, title: 'Todo 1', complete: false}];
+    response = {data: {todos}};
+  });
+
+  test('Should return data from backend', () => {
+    axios.get.mockReturnValue(response);
+
+    return Ajax.get().then(data => {
+      expect(data.todos).toEqual(todos);
     });
   });
 });
