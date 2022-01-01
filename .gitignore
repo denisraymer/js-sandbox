@@ -1,1 +1,5 @@
 .idea/
+
+*.lock
+*node_modules
+*-lock.json
