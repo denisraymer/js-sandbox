@@ -9,7 +9,8 @@
   "private": true,
   "workspaces": [
     "src\\TypeScript",
-    "src\\Jest"
+    "src\\Jest",
+    "src\\NodeJS"
   ],
   "devDependencies": {
     "axios": "^0.21.1",
