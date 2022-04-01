@@ -8,4 +8,9 @@ module.exports = {
     filename: 'build.js',
     library: 'main'
   },
+  watch: true,
+  watchOptions: {
+    aggregateTimeout: 300
+  },
+  devtool: 'source-map'
 }
