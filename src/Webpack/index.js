@@ -1,4 +1,4 @@
-const welcome = require('./welcom');
+import { welcome } from 'modules';
 
 welcome('Home');
 

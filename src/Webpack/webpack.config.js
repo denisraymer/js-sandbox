@@ -7,7 +7,7 @@ module.exports = {
   mode: 'development',
   entry: './index',
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, './public/build'),
     filename: 'build.js',
     library: 'main'
   },
@@ -25,5 +25,30 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('development'),
       'process.env.USER': JSON.stringify('USER NAME')
     })
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+            plugins: [
+              '@babel/plugin-proposal-object-rest-spread',
+              '@babel/plugin-transform-runtime'
+            ],
+            cacheDirectory: true
+          },
+        }
+      }
+    ]
+  },
+  resolve: {
+    alias: {
+      modules: path.resolve(__dirname, './src')
+    },
+    extensions: ['', '.js']
+  }
 }
