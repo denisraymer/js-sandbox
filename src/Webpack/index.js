@@ -1,5 +1,4 @@
-import { welcome } from 'modules';
+import { home, about } from 'modules';
 
-welcome('Home');
-
-exports.welcome = welcome;
+exports.about = about;
+exports.home = home;

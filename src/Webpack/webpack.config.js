@@ -18,6 +18,7 @@ module.exports = {
   devtool: (NODE_ENV === 'source-map') && 'source-map',
   // Команда для запуска, через NODE_ENV webpack watch --mode development
   plugins: [
+    // new webpack.NoErrorsPlugin(),
     // new webpack.EnvironmentPlugin(['NODE_ENV', 'DEBUG'])
     new webpack.DefinePlugin({
       // NODE_ENV: JSON.stringify(NODE_ENV),
