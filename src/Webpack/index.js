@@ -1,4 +1,4 @@
-import { home, about } from 'modules';
+import { home, about } from "modules"
 
-exports.about = about;
-exports.home = home;
+exports.about = about
+exports.home = home

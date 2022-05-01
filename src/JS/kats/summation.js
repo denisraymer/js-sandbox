@@ -1,9 +1,9 @@
 const summation = function (num) {
-    let result = null;
+  let result = null
 
-    for (let i = 0; i <= num; i++) result += i
+  for (let i = 0; i <= num; i++) result += i
 
-    return result
-};
+  return result
+}
 
-console.log(summation(8));
+console.log(summation(8))

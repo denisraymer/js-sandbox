@@ -1,3 +1,3 @@
-const serverRun = require('./server');
+const serverRun = require("./server")
 
-serverRun();
+serverRun()
