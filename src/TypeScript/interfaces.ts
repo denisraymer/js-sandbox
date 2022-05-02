@@ -38,6 +38,33 @@ const getArea: BlockStyleWithArea = {
   },
 }
 
+interface IPerson {
+  firstName: string
+  lastName: string
+  age?: number
+}
+
+interface IAdmin extends IPerson {
+  isAdmin: boolean
+}
+
+const admin: IAdmin = {
+  firstName: "Admin",
+  lastName: "Admin",
+  isAdmin: true,
+}
+
+type IModerator = IPerson & {
+  isModerator: boolean
+}
+
+const moderator: IModerator = {
+  firstName: "Moderator",
+  lastName: "Moderator",
+  isModerator: true,
+  age: 24,
+}
+
 // Имплементирование интерфейса классом
 interface IClock {
   time: Date
@@ -53,9 +80,20 @@ class Clock implements IClock {
   }
 }
 
+// Индекс сигнатура
 // Интерфейс для объекта с множеством динамических ключей
 interface IStyle {
   [key: string]: string
+}
+
+type IWithTypeStyle = {
+  [key: string]: string
+}
+
+type KeyNames = "age" | "amount"
+// Данная запись не работает в interface
+type IIndexLimitedType = {
+  [key in KeyNames]: number
 }
 
 const css: IStyle = {
@@ -88,7 +126,6 @@ callPet({ name: "Bobby", age: 2, color: "white" })
 // Этот пример показывает основное назначение и использование интерфейсов в TS.
 
 // Типизация функций
-
 interface IBuild {
   (address: string, type: string): {
     address: string
@@ -102,3 +139,42 @@ buildHouse = function (address: string, type: string) {
 }
 
 const WinterPalace = buildHouse("Palace Square", "palace")
+
+// Interface for Class
+interface IConnection<T> {
+  request(url: string): Promise<T>
+}
+
+interface IPost {
+  userId: number
+  id: number
+  title: string
+  body: string
+}
+
+class FetchService<P> implements IConnection<P> {
+  request(url: string): Promise<P> {
+    return fetch(url).then((result) => result.json())
+  }
+}
+
+const apiPostUrl: string = "https://jsonplaceholder.typicode.com/posts/1"
+const fetchPost = new FetchService<IPost>()
+fetchPost.request(apiPostUrl).then((data) => {
+  console.log(data)
+})
+
+// Обобщение/Generics
+function echo<T, P>(data: T, someData: P) {
+  return `${data}, ${someData}`
+}
+
+const output = echo("Message", "TYPE")
+
+function getLength<T extends { length: number }>(data: T) {
+  return data.length
+}
+
+getLength("length")
+// getLength(20) Error is not length
+getLength(["length"])

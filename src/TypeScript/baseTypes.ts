@@ -13,7 +13,10 @@ const genericArray: Array<number> = [1, 1, 2, 3, 5, 8, 13]
 const words: string[] = ["Hello", "TypeScript"]
 
 // Tuple
+// Позволяет описать массив с фиксированным или динамическим числом элементов
+// в котором известен тип каждого отдельного жлемента
 const contact: [string, number] = ["Denis", 123456]
+const fooBaz: [string, number, ...boolean[]] = ["Type", 715, true, false]
 
 // Any
 let variable: any = 42
@@ -21,13 +24,21 @@ let variable: any = 42
 variable = "New String"
 variable = ["New Array"]
 
-// Function
+// Function types
 // Тип void означает, что функция ничего не возвращает
 function sayMyName(name: string): void {
   console.log(name)
 }
 
 sayMyName("Хайзенберг")
+
+function sun(a: number, b: number): number {
+  return a + b
+}
+
+const printMessage = (message: string): void => {
+  console.log(message)
+}
 
 // Never
 // Тип никогда не означает, что ничего не происходит. Он используется, когда защита типа не может
@@ -56,3 +67,15 @@ const id_1: ID = 42
 const id_2: ID = "42"
 
 type SomeType = string | null | undefined
+
+// Unknown
+const legacyLibrary: unknown = "ЗДЕСЬ ЛЮБОЕ ЗНАЧЕНИЕ"
+
+if (typeof legacyLibrary === "string") {
+  console.log(legacyLibrary.length)
+}
+
+// Aliases
+const aliases: Array<string> = ["String", "String"]
+const bazFoo: Array<string | number> = ["String", 715, "String"]
+const fooBar: (string | number)[] = ["String", 715, "String"]
