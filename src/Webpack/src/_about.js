@@ -1,5 +1,5 @@
-import { welcome } from './index';
+import { welcome } from "./index"
 
-export default function() {
-  welcome('ABOUT page');
+export default function () {
+  welcome("ABOUT page")
 }

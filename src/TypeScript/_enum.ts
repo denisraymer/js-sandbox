@@ -3,32 +3,31 @@
 enum Job {
   Frontend,
   Backend = 50,
-  Designer
+  Designer,
 }
 
-const job: Job = Job.Backend;
-console.log(job);
+const job: Job = Job.Backend
+console.log(job)
 
-const job2: Job = Job.Backend;
-console.log(job2);
-
+const job2: Job = Job.Backend
+console.log(job2)
 
 enum Membership {
   Simple,
   Standard,
-  Premium
+  Premium,
 }
 
-const membership = Membership.Standard;
+const membership = Membership.Standard
 // const membershipRevers = Membership[2];
 
 // console.log(membership);
 // console.log(membershipRevers);
 
 enum SocialMedia {
-  VK = 'VK',
-  INSTAGRAM = 'INSTAGRAM',
-  FACEBOOK = 'FACEBOOK'
+  VK = "VK",
+  INSTAGRAM = "INSTAGRAM",
+  FACEBOOK = "FACEBOOK",
 }
 
-const social = SocialMedia.FACEBOOK;
+const social = SocialMedia.FACEBOOK

@@ -1,33 +1,44 @@
-const isFetching: Boolean = true;
-const isLoading: Boolean = false;
+const isFetching: Boolean = true
+const isLoading: Boolean = false
 
-const int: number = 42;
-const float: number = 4.2;
-const num: number = 3e10;
+const int: number = 42
+const float: number = 4.2
+const num: number = 3e10
 
-const message: string = 'Hello TypeScript';
+const message: string = "Hello TypeScript"
 
-const numberArray: number[] = [1, 1, 2, 3, 5, 8, 13];
-const genericArray: Array<number> = [1, 1, 2, 3, 5, 8, 13];
+const numberArray: number[] = [1, 1, 2, 3, 5, 8, 13]
+const genericArray: Array<number> = [1, 1, 2, 3, 5, 8, 13]
 
-const words: string[] = ['Hello', 'TypeScript'];
+const words: string[] = ["Hello", "TypeScript"]
 
 // Tuple
-const contact: [string, number] = ['Denis', 123456];
+// Позволяет описать массив с фиксированным или динамическим числом элементов
+// в котором известен тип каждого отдельного жлемента
+const contact: [string, number] = ["Denis", 123456]
+const fooBaz: [string, number, ...boolean[]] = ["Type", 715, true, false]
 
 // Any
-let variable: any = 42;
+let variable: any = 42
 // ...
-variable = 'New String';
-variable = ['New Array'];
+variable = "New String"
+variable = ["New Array"]
 
-// Function
+// Function types
 // Тип void означает, что функция ничего не возвращает
 function sayMyName(name: string): void {
-  console.log(name);
+  console.log(name)
 }
 
-sayMyName('Хайзенберг');
+sayMyName("Хайзенберг")
+
+function sun(a: number, b: number): number {
+  return a + b
+}
+
+const printMessage = (message: string): void => {
+  console.log(message)
+}
 
 // Never
 // Тип никогда не означает, что ничего не происходит. Он используется, когда защита типа не может
@@ -43,16 +54,28 @@ sayMyName('Хайзенберг');
 // Функция не имеет нормального завершения, что означает, что она выдает ошибку или вообще никогда
 // не завершает работу.
 function throwError(message: string): never {
-  throw new Error(message);
+  throw new Error(message)
 }
 
 // Type
-type login = string;
+type login = string
 
-const login: login = 'Admin';
+const login: login = "Admin"
 
-type ID = string | number;
-const id_1: ID = 42;
-const id_2: ID = '42';
+type ID = string | number
+const id_1: ID = 42
+const id_2: ID = "42"
 
-type SomeType = string | null | undefined;
+type SomeType = string | null | undefined
+
+// Unknown
+const legacyLibrary: unknown = "ЗДЕСЬ ЛЮБОЕ ЗНАЧЕНИЕ"
+
+if (typeof legacyLibrary === "string") {
+  console.log(legacyLibrary.length)
+}
+
+// Aliases
+const aliases: Array<string> = ["String", "String"]
+const bazFoo: Array<string | number> = ["String", 715, "String"]
+const fooBar: (string | number)[] = ["String", 715, "String"]

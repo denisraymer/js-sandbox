@@ -1,7 +1,7 @@
 const mainFunction = function () {
-    let value = true;
+  let value = true
 
-    console.log(value)
-};
+  console.log(value)
+}
 
-mainFunction();
+mainFunction()

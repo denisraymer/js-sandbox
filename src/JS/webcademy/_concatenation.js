@@ -1,9 +1,9 @@
 // ======== 5. Конкатенация строк и шаблонные строки ========
 
-const userName = 'Egor';
+const userName = "Egor"
 
 // Конкатенация
-console.log('Привет, ' + userName + '! как дела?');
+console.log("Привет, " + userName + "! как дела?")
 
 // Шаблонные строки и интерполяция
-console.log(`Привет ${userName}! Как дела?`);
+console.log(`Привет ${userName}! Как дела?`)
