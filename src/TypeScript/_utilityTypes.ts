@@ -71,11 +71,11 @@ interface IPickTodo {
   completed: boolean
 }
 
-type ITodoPreview = Pick<IPickTodo, "title" | "completed">
-
 // Pick<Type, Keys>
 // Создает тип, выбирая набор свойств Keys(строковый литерал
 // или объединение строковых литералов) из Type.
+type ITodoPreview = Pick<IPickTodo, "title" | "completed">
+
 const completeTodo: ITodoPreview = {
   title: "TITLE",
   completed: true,
@@ -106,7 +106,7 @@ const omitTodoInfo: IOmitTodoInfo = {
 }
 
 // Exclude<UnionType, ExcludedMembers>
-// Создает тип, исключая из него UnionTypeвсе члены объединения,
+// Создает тип, исключая из него UnionType все члены объединения,
 // которые можно присвоить ExcludedMembers.
 
 type T0 = Exclude<"a" | "b" | "c", "a">
