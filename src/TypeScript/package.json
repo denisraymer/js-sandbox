@@ -1,0 +1,13 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "description": "TypeScript tutorial",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "../../node_modules/.bin/tsc --watch",
+    "build": "../../node_modules/.bin/tsc --build"
+  },
+  "author": "DenisRaymer",
+  "license": "ISC"
+}

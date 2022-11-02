@@ -1,0 +1,11 @@
+{
+  "name": "jest",
+  "version": "1.0.0",
+  "description": "Ubit testing lern",
+  "main": "index.js",
+  "author": "DenisRaymer",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  }
+}
