@@ -3,16 +3,6 @@
 
 const USERS_API_URL = "https:///jsonplaceholder.typicode.com/users"
 
-// const delay = (time = 1500) => {
-//   return new Promise((resolve, reject) => {
-//     if (time < 500) {
-//       reject(`${500} это маленькая задержка!`)
-//     }
-//
-//     setTimeout(() => resolve(`Задержка: ${time}`), time)
-//   })
-// }
-
 // const webCam = navigator.mediaDevices
 //   .getUserMedia({ video: true })
 //   .then((mediaStream) => {
