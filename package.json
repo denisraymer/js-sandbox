@@ -11,7 +11,8 @@
     "src\\TypeScript",
     "src\\Jest",
     "src\\NodeJS",
-    "src\\Webpack"
+    "src\\Webpack",
+    "src\\ReactEject"
   ],
   "devDependencies": {
     "@babel/core": "^7.17.8",
