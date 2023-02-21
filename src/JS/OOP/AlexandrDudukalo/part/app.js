@@ -1,5 +1,8 @@
 import { _Note } from "./_Note.js"
+import { _Addition } from "./_Addition.js"
+;(function startApp(content) {
+  const rootContent = document.getElementById(content)
 
-const newNote = new _Note("app", "Test name")
-
-console.log(newNote)
+  new _Addition(rootContent)
+  new _Note(rootContent, "Test name")
+})("app")

@@ -1,4 +1,6 @@
-/* CSS */
+import { htmlDoneButtonCSSClass } from "./_style.js"
+
+/* list of CSS classes */
 const htmlItemCSSClass = [
   "list-group-item",
   "d-flex",
@@ -8,15 +10,14 @@ const htmlItemCSSClass = [
 const htmlItemSuccessCSSClass = ["list-group-item-success"]
 
 const htmlButtonGroupCSSClass = ["btn-group", "btn-group-sm"]
-const htmlDoneButtonCSSClass = ["btn", "btn-success"]
 const htmlDeleteButtonCSSClass = ["btn", "btn-danger"]
 
 export class _Note {
   _noteName = ""
   _done = false
 
-  constructor(containerId, name = "", done = false) {
-    this.htmlContainer = document.getElementById(containerId)
+  constructor(htmlContainer, name = "", done = false) {
+    this.htmlContainer = htmlContainer
     this.htmlItem = document.createElement("div")
     this.htmlButtonGroup = document.createElement("div")
     this.htmlNameSpan = document.createElement("span")
