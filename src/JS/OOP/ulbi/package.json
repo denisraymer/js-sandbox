@@ -1,0 +1,8 @@
+{
+  "name": "ulbi",
+  "version": "1.0.0",
+  "description": "OOP tutorial",
+  "main": "index.js",
+  "author": "DenisRaymer",
+  "license": "MIT"
+}

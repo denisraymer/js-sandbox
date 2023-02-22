@@ -9,6 +9,10 @@ export class Person {
     this._age = age
   }
 
+  public greeting() {
+    console.log(`Привет я человек и меня зовут ${this._name}`)
+  }
+
   public getFullName() {
     return `Name: ${this._name} -- Lastname: ${this._lastName}`
   }
