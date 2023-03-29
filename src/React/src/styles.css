@@ -1,0 +1,19 @@
+.App {
+  font-family: sans-serif;
+  text-align: left;
+  font-size: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+input {
+  padding: 20px;
+  font: inherit;
+}
+
+button {
+  font: inherit;
+}
+
