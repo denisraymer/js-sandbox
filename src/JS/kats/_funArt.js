@@ -23,7 +23,7 @@ function someFn2() {
 
   function innerFn(...args) {
     if (args.length === 0) {
-      console.log(`Результат сложения: ${sum}`)
+      return sum
     } else {
       sum += args.reduce((acc, curr) => acc + curr, 0)
       return innerFn
@@ -33,7 +33,9 @@ function someFn2() {
   return innerFn(...arguments)
 }
 
-// someFn2(2)(2)(3)()
+// const res = someFn2("123123")("asdasd")(["asdasd", "asdasd"])({ asd: 123 })()
+//
+// console.log(`Результат сложения: ${res}`)
 
 /**/
 
