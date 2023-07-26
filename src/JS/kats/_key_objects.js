@@ -21,24 +21,36 @@ const array = [
 function objectConvert(arr) {
   const obj = {}
 
-  for (let i = 0; i <= arr.length; i++) {
-    const id = arr[i].id
+  arr.forEach((element, index) => {
+    const id = element.id
 
     if (!obj[id]) {
       obj[id] = []
     }
 
-    obj[id].push(arr[i])
+    obj[id].push(id)
+  })
 
-    // if (obj.hasOwnProperty(id)) {
-    //   obj[id].push(arr[i])
-    // } else {
-    //   obj[id] = [arr[i]]
-    // }
-  }
+  // for (let i = 0; i < arr.length; i++) {
+  //   const id = arr[i].id
+  //
+  //   if (!obj[id]) {
+  //     obj[id] = []
+  //   }
+  //
+  //   obj[id].push(arr[i])
+  //
+  //   // if (obj.hasOwnProperty(id)) {
+  //   //   obj[id].push(arr[i])
+  //   // } else {
+  //   //   obj[id] = [arr[i]]
+  //   // }
+  // }
 
   return obj
 }
+
+console.log(objectConvert(array))
 
 // const a = 22
 
