@@ -15,3 +15,9 @@ function isIsogram(str) {
 }
 
 isIsogram("moOse")
+
+// export function isIsogram(str: string): boolean {
+//   const toLower = str.toLowerCase()
+//
+//   return toLower.length === new Set([...toLower]).size
+// }

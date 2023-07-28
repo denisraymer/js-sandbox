@@ -5,6 +5,9 @@ function simpleMultiplication(number: number): number {
 
   return number * 8
 
+  // const multiplier = number % 2 ? 9 : 8
+  // return number * multiplier
+
   // return number * (number % 2 ? 9 : 8)
 }
 
