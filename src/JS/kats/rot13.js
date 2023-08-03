@@ -1,71 +1,24 @@
-function rot13(message) {
-  let arr_en = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z",
-  ]
-  let arr_EN = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z",
-  ]
-  let arr_symbols = ["!", "@", "#", "$", "%", "&", "?", "-", "+", "=", "~"]
+function rot13(word) {
+  // let arr_en = "abcdefgjhijklmnopqrstuvwxyz".split("")
+  // let arr_EN = "ABCDEFGJHIJKLMNOPQRSTUVWXYZ".split("")
 
-  let messageArray = message.split("")
+  for (const symbol of word) {
+    console.log(String.fromCharCode(symbol.charCodeAt(symbol)))
+  }
 
-  messageArray.forEach(function (item) {
-    let enIndex = arr_en.indexOf(item)
-
-    console.log(arr_en.slice(enIndex))
-  })
-
-  return messageArray
+  // return word
 }
 
-console.log(rot13("vika"))
+rot13("grfg")
+
+/*
+* let enIndex = arr_en.indexOf(symbol) + 1
+
+    if (enIndex > 13) {
+      console.log(enIndex, arr_en[enIndex - 13])
+    } else {
+      console.log(enIndex, arr_en[enIndex + 13])
+    }
+
+    console.log(String.fromCharCode(symbol.charCodeAt(0) - 96))
+* */
