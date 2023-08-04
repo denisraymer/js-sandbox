@@ -60,6 +60,45 @@ const timer = new Timer((value) => {
   console.log(`Тик! Время: ${value}`)
 })
 
+class Timer2 {
+  private tick = 0
+  private timerId: NodeJS.Timer | null = null
+  private speed = 1
+
+  constructor(private callBack: (tick: number) => void) {}
+
+  public start() {
+    if (this.timerId) return
+
+    this.timerId = setInterval(() => {
+      this.callBack(this.tick)
+
+      this.tick++
+    }, 1000 / this.speed)
+  }
+
+  public stop() {
+    this.pause()
+
+    this.tick = 0
+  }
+
+  public pause() {
+    if (!this.timerId) return
+
+    clearInterval(this.timerId)
+    this.timerId = null
+  }
+
+  public setSpeed(speed = 1) {
+    if (speed <= 0) return
+
+    this.pause()
+    this.speed = speed
+    this.start()
+  }
+}
+
 // timer.start()
 // timer.setSpeed(2)
 // timer.pause()
