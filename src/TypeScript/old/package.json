@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "../../node_modules/.bin/tsc --watch",
-    "build": "../../node_modules/.bin/tsc --build"
+    "start": "../../../node_modules/.bin/tsc --watch",
+    "build": "../../../node_modules/.bin/tsc --build"
   },
   "author": "DenisRaymer",
   "license": "ISC"

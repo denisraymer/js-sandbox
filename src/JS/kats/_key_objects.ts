@@ -5,22 +5,36 @@ const array = [
   },
   {
     id: 12,
-    data: "",
+    example: "",
   },
   {
     id: 13,
-    data: "",
+    test: "",
+  },
+  {
+    id: 14,
+    data: {
+      id: 13,
+      data: "",
+    },
+  },
+  {
+    id: 14,
+    text: {
+      id: 13,
+      data: "",
+    },
   },
 ]
 
 type TArrayItem = {
-  id: number
-  data: string
+  id: string | number
+  data?: Record<string | number, any> | string
 }
 
-type TResultObject = Record<string, TArrayItem[]>
+type TResultObject = Record<string | number, TArrayItem[]>
 
-function objectConvert(arr: TArrayItem[]): TResultObject {
+function objectConvert<T extends TArrayItem>(arr: T[]): TResultObject {
   const obj: TResultObject = {}
 
   arr.forEach((element): void => {
@@ -37,6 +51,25 @@ function objectConvert(arr: TArrayItem[]): TResultObject {
 }
 
 objectConvert(array)
+
+function objectConvertById<T extends { id: string | number }>(
+  objects: T[]
+): Record<string | number, T[]> {
+  const grouped: Record<string | number, T[]> = {}
+
+  for (const obj of objects) {
+    const id = obj.id
+    if (grouped[id]) {
+      grouped[id].push(obj)
+    } else {
+      grouped[id] = [obj]
+    }
+  }
+
+  return grouped
+}
+
+objectConvertById(array)
 
 /*
  * Массив любых интерфейсов, главное что бы у объекта было поле ID
