@@ -8,14 +8,13 @@ class User {
   }
 }
 
-
 const myClass = new User("Иван")
 const myClass2 = new User("Вика")
 
 myClass.sayHi()
 myClass2.sayHi()
 
-console.log('----------------------')
+console.log("----------------------")
 
 /* Объявляем класс и возвращаем его */
 const makeClass = (phrase) => {
@@ -27,10 +26,10 @@ const makeClass = (phrase) => {
 }
 
 /* Создаём новый класс */
-const UserMakeClass = makeClass('Привет')
+const UserMakeClass = makeClass("Привет")
 new UserMakeClass().sayHi()
 
-console.log('----------------------')
+console.log("----------------------")
 
 /* Геттеры/сеттеры */
 class News {
@@ -45,25 +44,25 @@ class News {
 
   set name(value) {
     if (value.length === 0) {
-      console.log('Имя слишком короткое')
-      return;
+      console.log("Имя слишком короткое")
+      return
     }
 
     this._name = value
   }
 }
 
-const KSNews = new News('Новости Каджи-Сая')
+const KSNews = new News("Новости Каджи-Сая")
 console.log(KSNews.name)
 
-const ErrorNews = new News('')
+const ErrorNews = new News("")
 console.log(ErrorNews.name) // undefined
 
-console.log('----------------------')
+console.log("----------------------")
 
 /* Свойства классов */
 class Anonymous {
-  prop = 'Anonymous'
+  prop = "Anonymous"
 
   sayHy() {
     console.log(`Message ${this.prop}: 123bebebe`)
@@ -72,18 +71,18 @@ class Anonymous {
 
 new Anonymous().sayHy()
 
-console.log('----------------------')
+console.log("----------------------")
 
 /* Пример с вычисляемым свойством в скобках */
 class SayCustomName {
-  ['say' + 'Hi']() {
-    console.log("Привет");
+  ["say" + "Hi"]() {
+    console.log("Привет")
   }
 }
 
 new SayCustomName().sayHi()
 
-console.log('----------------------')
+console.log("----------------------")
 
 /* Переписать часы с функции в класс */
 // https://plnkr.co/edit/3Ao0zGUkfAsEspGQ?p=preview&preview
