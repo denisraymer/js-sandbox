@@ -29,10 +29,10 @@ const array = [
 
 type TArrayItem = {
   id: string | number
-  data?: Record<string | number, any> | string
+  data?: Record<string, any> | string
 }
 
-type TResultObject = Record<string | number, TArrayItem[]>
+type TResultObject = Record<string, TArrayItem[]>
 
 function objectConvert<T extends TArrayItem>(arr: T[]): TResultObject {
   const obj: TResultObject = {}
@@ -54,8 +54,8 @@ objectConvert(array)
 
 function objectConvertById<T extends { id: string | number }>(
   objects: T[]
-): Record<string | number, T[]> {
-  const grouped: Record<string | number, T[]> = {}
+): Record<string, T[]> {
+  const grouped: Record<string, T[]> = {}
 
   for (const obj of objects) {
     const id = obj.id
@@ -70,6 +70,12 @@ function objectConvertById<T extends { id: string | number }>(
 }
 
 objectConvertById(array)
+
+const obj = {
+  name: "123",
+  age: 100,
+  job: "",
+}
 
 /*
  * Массив любых интерфейсов, главное что бы у объекта было поле ID

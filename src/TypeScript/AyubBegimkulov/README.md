@@ -46,3 +46,39 @@
 ## Type Assertions
 
 - Выкидывает ошибку если переданный аргумент с неправильным типом
+
+## Unknown
+
+- Unknown - это аналог any, который также описывает значение любого типа. Однако прежде чем совершать какие-то операции
+над ним - нужно убедиться в его типизации.  
+
+### Когда использовать unknown
+
+Всегда, когда только можно:
+- Вместо any
+- Результат JSON.parse (или любая другая десиариализация в рантайме)
+- Ответы от неизвестных API
+- Ошибка в catch блоках
+
+### Когда не будет работать unknown
+
+```ts
+function wrap<Fn extends (...args: unknown[]) => unknown>(fn: Fn) {
+  return function wrapped(...args) {
+     return fn.apply(null, args)
+  } as Fn
+}
+
+wrap((a: number) => a * 2)
+```
+
+## Never
+
+- Never - это union, у которого нет элементов. Представляет невозможный кейс на уровне типизации.
+
+- Never возможно присвоить в любой тип 
+
+```ts
+type neverTestType = number | string | never
+// neverTestType = number | string
+```
