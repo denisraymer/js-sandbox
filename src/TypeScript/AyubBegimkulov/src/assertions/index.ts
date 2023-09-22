@@ -16,10 +16,11 @@ export function assertOptions(value: unknown): asserts value is IOptions {
     throw new Error("Options.b must me of string")
   }
 }
+
 function doSomething(value: unknown): void {
   assertOptions(value)
 
-  console.log(value)
+  console.log(value) // IOptions
 }
 
 doSomething("")
